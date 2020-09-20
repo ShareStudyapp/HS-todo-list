@@ -1,39 +1,37 @@
 import React, { Component } from 'react';
+import Category from "./components/Category"
+import TodoList from "./components/TodoList"
+import Create from "./components/Create"
+import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      test: 123,
+      currCate: '전체',
       todoL: [
-        { id: 0, content: '산책시키기', toAt: '2020/09/18/20:20:00' },
-        { id: 1, content: '리액트 공부', toAt: '2020/09/19/10:25:00' },
-        { id: 2, content: '운동', toAt: '2020/09/19/18:00:00' }
+        { id: 0, category:'할일', title: '산책시키기', dese: 'descTest1', toAt: '2020/09/18/20:20:00' },
+        { id: 1, category:'하는중',title: '리액트 공부', dese: 'descTest2', toAt: '2020/09/19/10:25:00' },
+        { id: 2, category:'완료',title: '운동', dese: 'descTest3', toAt: '2020/09/19/18:00:00' },
+        { id: 3, category:'보류',title: '앱 개발', dese: 'descTest4', toAt: '2020/09/20/18:00:00' }
       ]
     }
   }
   render () {
-    let list = this.state.todoL.reduce((accum, curr) => {
-      accum.push(<li key={curr.id}>{curr.content}</li>)
-      return accum
-    }, [])
     return (
       <div className="App">
-        {list}
-        {/* commit test */}
-        <form action="/create_process" method="post"
-          onSubmit={function(e){
-            e.preventDefault();
-            let content = this.state.todoL.concat(
-              { id:this.state.todoL.length, content: e.target.content.value, todoL: 'test' }
-            )
-            this.setState({
-              todoL: content
-            })
-          }.bind(this)}>
-          <input type="text" name="content" placeholder="타이틀을 입력해주세요."></input>
-          <input type="submit"></input>
-        </form>
+        <Category setCate={function(cate){
+          this.setState({ currCate: cate });
+        }.bind(this)}></Category>
+        <hr/>
+        <h2>{this.state.currCate}</h2>
+        <TodoList currCate={this.state.currCate} todoL={this.state.todoL}></TodoList>
+        <Create createTodo={function(title){
+          let content = this.state.todoL.concat(
+            { id:this.state.todoL.length, category: this.state.currCate, title: title, toAt: 'test' }
+          )
+          this.setState({ todoL: content })
+        }.bind(this)}></Create>
      </div>
     );
   }
