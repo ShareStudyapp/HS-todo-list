@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom"
 import Category from "./components/Category"
 import TodoList from "./components/TodoList"
 import Create from "./components/Create"
+import About from "./About"
 import './assets/css/App.css';
 
 class App extends Component {
@@ -24,6 +26,12 @@ class App extends Component {
           this.setState({ currCate: cate });
         }.bind(this)}></Category>
         <hr/>
+        <div>
+          <BrowserRouter>
+            <Link to="/About">test</Link>
+            <Route path="/About" component={About} />
+          </BrowserRouter>
+        </div>
         <h2>{this.state.currCate}</h2>
         <TodoList currCate={this.state.currCate} todoL={this.state.todoL}></TodoList>
         <Create createTodo={function(title){
