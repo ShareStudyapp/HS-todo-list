@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Category from "./components/Category"
 import TodoList from "./components/TodoList"
 import Create from "./components/Create"
-import './App.css';
+import './assets/css/App.css';
 
 class App extends Component {
   constructor(props){

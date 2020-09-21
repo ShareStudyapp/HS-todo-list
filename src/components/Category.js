@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../assets/css/App.css';
 
 class Category extends Component {
   constructor(props){
     super(props);
     this.state = {
-      categories: ['전체', '할일', '하는중', '완료', '보류', '···']
+      categories: ['전체', '할일', '하는중', '완료', '보류']
     }
   }
   render () {
@@ -17,6 +17,7 @@ class Category extends Component {
     return (
       <div className="cateBar">
         {categories}
+        <div className="cateChip">···</div>
       </div>
     );
   }
