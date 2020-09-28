@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import '../assets/css/App.css';
+import store from '../store';
 
-class App extends Component {
-  render () {
-    let list = this.props.todoL.reduce((accum, curr) => {
-      if (this.props.currCate === '전체') accum.push(<div key={curr.id}>{curr.title}</div>)
-      else if(this.props.currCate === curr.category) accum.push(<div key={curr.id}>{curr.title}</div>)
-      return accum
-    }, [])
-    return (
-      <div>
-        {list}
-     </div>
-    );
-  }
+function TodoList (props) {
+  let list = store.getState()._todoL.reduce((accum, curr) => {
+    if (store.getState()._currCate === '전체') accum.push(<div key={curr.id}>{curr.title}</div>)
+    else if(store.getState()._currCate === curr.category) accum.push(<div key={curr.id}>{curr.title}</div>)
+    return accum
+  }, [])
+  return (
+    <div>
+      {list}
+    </div>
+  )
 }
 
-export default App;
+export default TodoList;
