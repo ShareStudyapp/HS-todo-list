@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {} from 'react';
 import '../assets/css/App.css';
 
 function Create (props) {
@@ -14,4 +14,4 @@ function Create (props) {
   )
 }
 
-export default Create;
+export default React.memo(Create);

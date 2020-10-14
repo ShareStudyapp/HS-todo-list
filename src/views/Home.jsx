@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {} from 'react';
 import Category from "../container/Category"
 import TodoList from "../container/TodoList"
 import Create from "../container/Create"
@@ -18,7 +18,7 @@ function Home (props) {
   return (
     <div className="Home">
       <Category></Category>
-      <hr/>
+      <hr className="mainHr"/>
       <h2>{store.getState()._currCate}</h2>
       <TodoList></TodoList>
       <Create></Create>

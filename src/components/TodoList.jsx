@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {} from 'react';
 import '../assets/css/App.css';
 import store from '../store';
 
@@ -9,10 +9,10 @@ function TodoList (props) {
     return accum
   }, [])
   return (
-    <div>
+    <>
       {list}
-    </div>
+    </>
   )
 }
 
-export default TodoList;
+export default React.memo(TodoList);

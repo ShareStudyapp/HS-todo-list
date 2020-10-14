@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from "react-redux"
-import App from "./App"
-import store from "./store"
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import * as serviceWorker from './serviceWorker';
+import { Provider } from "react-redux"
+import store from "./store"
+import App from "./App.jsx"
 
 ReactDOM.render(
   <Provider store={store}>
@@ -14,5 +13,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-serviceWorker.unregister();

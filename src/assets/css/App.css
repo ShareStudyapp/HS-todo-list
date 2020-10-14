@@ -19,6 +19,31 @@
   font-size: 14px;
   font-weight: 600;
 }
+.mainHr {
+  border: 2px solid #30303060;
+  margin: 4px 6px;
+}
+.addWrap input {
+  width: 150px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: solid 2px #0079bf;
+  margin-right: 6px;
+}
+.addWrap {
+  margin: 5px 6px;
+}
+.addWrap button {
+  width: 80px;
+  padding: 7px 8px;
+  border-radius: 6px;
+  background-color: #5aac44;
+  border: none;
+  color: white;
+}
+input:focus{
+  outline: none;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
